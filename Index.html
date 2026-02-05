@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Adwika 🎂💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffd6e8, #ffb6d9);
+}
+
+/* Slides */
+.slide {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* 🎈 BALLOONS */
+.balloon {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+}
+.balloon:after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: #555;
+  bottom: -40px;
+  left: 50%;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* 🎉 Text */
+.hero-text {
+  font-size: 46px;
+  color: #ff4d88;
+  text-shadow: 0 0 10px white, 0 0 25px #ff99cc;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px white, 0 0 25px #ff99cc; }
+  to { text-shadow: 0 0 20px white, 0 0 40px #ff66aa; }
+}
+
+/* 🎂 Cake */
+.cake { font-size: 70px; margin-top: 20px; }
+
+/* Fade out */
+.fade-out { animation: fadeText 2s forwards; }
+@keyframes fadeText { to { opacity: 0; transform: translateY(-40px); } }
+
+/* Slide 2 */
+#slide2 { background: #fff0f6; opacity: 0; }
+.open-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: #ff66aa;
+  color: white;
+  cursor: pointer;
+}
+
+/* Memory wall */
+#memories { background: #ffe680; opacity: 0; }
+
+.polaroid {
+  position: absolute;
+  width: 160px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: rotate(var(--r));
+}
+.polaroid img { width: 100%; }
+
+.p1 { top: 10%; left: 15%; --r: -10deg; }
+.p2 { top: 25%; left: 60%; --r: 8deg; }
+.p3 { top: 60%; left: 10%; --r: -6deg; }
+.p4 { top: 65%; left: 55%; --r: 12deg; }
+.p5 { top: 40%; left: 35%; --r: -3deg; }
+
+/* 🎵 Music button */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: #ff66aa;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎈 Balloons -->
+<div class="balloon" style="left:10%; top:10%; background:#ff99cc;"></div>
+<div class="balloon" style="left:80%; top:15%; background:#ff66aa;"></div>
+<div class="balloon" style="left:50%; top:5%; background:#ffb6d9;"></div>
+
+<!-- Slide 1 -->
+<div id="slide1" class="slide">
+  <div id="birthdayText" class="hero-text">
+    Happy Birthday Adwika 🎉💖
+  </div>
+  <div class="cake">🎂</div>
+</div>
+
+<!-- Slide 2 -->
+<div id="slide2" class="slide">
+  <button class="open-btn" onclick="showMemories()">Open if you love me 💌</button>
+</div>
+
+<!-- Memories -->
+<div id="memories" class="slide">
+  <div class="polaroid p1"><img src="photo1.jpg"></div>
+  <div class="polaroid p2"><img src="photo2.jpg"></div>
+  <div class="polaroid p3"><img src="photo3.jpg"></div>
+  <div class="polaroid p4"><img src="photo4.jpg"></div>
+  <div class="polaroid p5"><img src="photo5.jpg"></div>
+</div>
+
+<!-- 🎵 Music -->
+<button class="music-btn" onclick="playMusic()">🎵 Play "Yellow"</button>
+<iframe id="musicFrame" width="0" height="0" allow="autoplay" style="display:none;"></iframe>
+
+<script>
+setTimeout(() => {
+  document.getElementById("birthdayText").classList.add("fade-out");
+}, 2500);
+
+setTimeout(() => {
+  document.getElementById("slide2").style.opacity = "1";
+}, 4500);
+
+function showMemories() {
+  document.getElementById("memories").style.opacity = "1";
+}
+
+function playMusic() {
+  document.getElementById("musicFrame").src =
+    "https://www.youtube.com/embed/tdVAqxNLXiw?autoplay=1&loop=1&playlist=tdVAqxNLXiw";
+}
+</script>
+
+</body>
+</html>
